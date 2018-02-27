@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>扩展运算符和rest运算符</title>
+	</head>
+
+	<body>
+	</body>
+	<script>
+		// ... 扩展运算符
+		function jspang(...arg) {
+			console.log(arg[0], arg[1], arg[2]);
+		}
+		jspang(1, 2, 3);
+		//扩展运算符的用处：
+		//我们先用一个例子说明，我们声明两个数组arr1和arr2，然后我们把arr1赋值给arr2，
+		//然后我们改变arr2的值，你会发现arr1的值也改变了，因为我们这是对内存堆栈的引用，而不是真正的赋值。
+
+		let arr1 = ['www', 'jspang', 'com'];
+		//let arr2=arr1;
+		let arr2 = [...arr1]; // 这样就能达到想要的结果了，记住只要带...xxx就是要xxx里面的东西
+		console.log(arr2);
+		arr2.push('shengHongYu');
+		console.log(arr2);
+		console.log(arr1);
+		
+		//rest运算符 也是... 当剩余参数不确定时 可以用rest运算符
+		function qiufuli(f,...arg){
+			//for…of的循环可以避免我们开拓内存空间，增加代码运行效率
+			for(let val of arg){
+				console.log(val)
+			}
+		}
+		qiufuli(0,1,2,3,4,5,6);
+	</script>
+
+</html>

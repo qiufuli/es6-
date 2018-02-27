@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>解构赋值</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//数组的解构赋值
+		//let a=0;
+		//let b=1;
+		//let c=2;
+//数组格式要跟赋值的格式是一样的 几个就是几个
+		let [a,b,c] = [0,1,2];
+		console.log(a,b,c);
+		
+		//有默认值的话 后边可以没有东西
+		let [foo=true] = [];
+		//undefined(没有值取默认值) null（有值取null）
+		let [A,B='邱福利'] = ['qiufuli',null]
+		console.log(foo);
+		console.log(A);
+		console.log(B);
+		
+		
+		//对象解构赋值
+		let {ao,bo} = {ao:'qiufuli',bo:'邱福利'};
+		console.log(ao,bo);
+//对象解构与数组解构的区别是 对象按照键值解构 数组需要按照顺序解构
+		//坑
+		let co;
+		({co} = {co:'jspang'});
+		console.log(co)
+		//要是先声明了 然后在解构的话 需要在前面加上（）才行 有点蹩脚
+		
+		//字符串解构
+		const [q,w,e,r] = 'querqwer';
+		console.log(q,w,e,r)
+	</script>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>变量声明</title>
+	</head>
+	<body>
+	</body>
+	<script>
+//		var：它是variable的简写，可以理解成变量的意思。
+//		let：它在英文中是“让”的意思，也可以理解为一种声明的意思。
+//		const：它在英文中也是常量的意思，在ES6也是用来声明常量的，常量你可以简单理解为不变的量。
+		var a = 'jspang';
+		{
+			let a = 'qiufuli'; // let 是一个局部声明 在一段代码块结束后就消失了 循环中常用
+		}
+		console.log(a)
+		
+		const b= '123'; // const 是一个常量声明 后期如果变得话 会报错  如果不想被重复引用的话可以用这个
+		var b= '222';
+		console.log(b)
+	</script>
+</html>

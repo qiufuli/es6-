@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>字符串模版</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//也支持运算
+		let a=1;
+		let b=2;
+		let res = `${a+b}`;
+		console.log(res)
+		
+		let qiufuli='邱福利';
+		let blog = `我的名字叫${qiufuli}`;
+		console.log(blog);
+		//查找字符串
+		console.log(blog.indexOf(qiufuli)); //es5中查找返回索引
+		console.log(blog.includes(qiufuli)); //es6中查找返回布尔
+		console.log(blog.startsWith(qiufuli)); // starts 多个s es6中查找开头有没有返回布尔 
+		console.log(blog.endsWith(qiufuli)); // ends 多个s es6中查找结尾有没有返回布尔 
+	//课外
+		console.log(blog.repeat(3)) // 多次复制 可以用来排版
+	</script>
+</html>
