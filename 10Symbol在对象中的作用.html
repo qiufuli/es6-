@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Symbol在对象中的作用</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		var g = Symbol('jspang');
+		console.log(g);
+		console.log(g.toString());
+		//这时候我们仔细看控制台是有区别的，没有toString的是红字，toString的是黑字。
+		//看一下如何用Symbol构建对象的Key，并调用和赋值。
+		var jspang = Symbol();
+		var obj={
+		    [jspang]:'技术胖'
+		}
+		//Symbol的话 不用.调用对象
+		console.log(obj[jspang]);
+		obj[jspang]='web';
+		console.log(obj[jspang]);
+	</script>
+</html>

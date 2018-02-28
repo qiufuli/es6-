@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ES6中新增的数组知识（1）</title>
+	</head>
+	<body>
+	</body>
+	<script>//json数组格式
+let json = {
+	'0': 'jspang',
+	'1': '技术胖',
+	'2': '大胖逼逼叨',
+	length: 3
+}
+//		这就是一个标准的JSON数组格式，跟普通的JSON对比是在最后多了一个length属性。
+//		只要是这种特殊的json格式都可以轻松使用ES6的语法转变成数组。
+//		在ES6中绝大部分的Array操作都存在于Array对象里。
+//		我们就用Array.from(xxx)来进行转换。
+//		我们把上边的JSON代码转换成数组，并打印在控制台。
+let arr = Array.from(json);
+console.log(arr)
+// Array.of() 它负责把一堆文本或者变量转换成数组。
+let arr1 = Array.of(3, 4, 5, 6);
+let arr2 = Array.of('技术胖', 'jspang', '大胖逼逼叨');
+console.log(arr1)
+console.log(arr2)
+//find()实例方法
+//所谓的实例方法就是并不是以Array对象开始的，而是必须有一个已经存在的数组，然后使用的方法
+let arr3 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(arr3.find(function(value, index, arr) {
+	return value > 5;
+}))
+//value：表示当前查找的值。
+//index：表示当前查找的数组索引。
+//arr：表示当前数组。
+
+//fill( )实例方法：
+//fill()也是一个实例方法，它的作用是把数组进行填充，它接收三个参数，
+//第一个参数是填充的变量，第二个是开始填充的位置，第三个是填充到的位置。
+let arr4=[0,1,2,3,4,5,6,7,8,9];
+arr4.fill('jspang',2,5);
+console.log(arr4);
+
+//for...of 循环
+
+let arr5=['jspang','技术胖','大胖逼逼叨']
+ 
+for (let item of arr5){
+    console.log(item);
+}
+for (let [index,val] of arr.entries()){
+    console.log(index+':'+val);
+}
+	
+//entries实例方法
+//entries()实例方式生成的是Iterator形式的数组，那这种形式的好处就是可以让我们在需要时用next()手动跳转到下一个值
+let arr6=['jspang','技术胖','大胖逼逼叨']
+let list=arr6.entries();
+console.log(list)
+console.log(list.next().value);
+console.log(list.next().value);
+console.log(list.next().value);	
+	</script>
+</html>

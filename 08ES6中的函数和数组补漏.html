@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>ES6中的函数和数组补漏</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//对象的函数解构
+		let json = {
+		    a:'jspang',
+		    b:'技术胖'
+		}
+		function fun({a,b}){
+			console.log(a,b)
+		}
+		fun(json)
+		//数组解构
+		let arr = ['jspang','技术胖','免费教程'];
+		function fun2(a,b,c){
+		    console.log(a,b,c);
+		}
+		fun2(...arr);
+		
+		//in的用法
+		//in是用来判断对象或者数组中是否存在某个值的。我们先来看一下用in如何判断对象里是否有某个值。
+		let obj={
+		    a:'jspang',
+		    b:'技术胖'
+		}
+		console.log('a' in obj);  //true
+		
+		let arr2=[,,,,,];
+		console.log(0 in arr2); //false
+		 
+		let arr3=['jspang','技术胖'];
+		console.log(0 in arr3);  // true
+		
+		//数组遍历
+		//forEach index 和val 是反着的
+		let arr4=['jspang','技术胖','前端教程'];
+		arr4.forEach((val,index)=>console.log(index,val))
+		//filter
+		arr4.filter(x=>console.log(x));
+		//some
+		arr4.some(x=>console.log(x));
+		//map
+		console.log(arr4.map(x=>'web'));
+	</script>
+</html>
