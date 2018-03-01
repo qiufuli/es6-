@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>用Proxy进行预处理</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//proxy 代理 es6 增强 对象和函数（方法） 声明周期  预处理
+		
+	var obj={
+	    add:function(val){
+	        return val+10;
+	    },
+	    name:'I am Jspang'
+	    
+	};
+	console.log(obj.add(100));
+	console.log(obj.name);
+	//我们用new的方法对Proxy进行声明。
+	var pro = new Proxy({
+		 add:function(val){
+	        return val+10;
+	    },
+	    name:'I am Jspang'
+	},{
+		//get属性是在你得到某对象属性值时预处理的方法，
+		get:function(target,key,property){
+			console.log('target:',target);
+			console.log('key',key);
+			console.log('property',property);
+			return target[key]
+		},
+		//set属性是值你要改变Proxy属性值时，进行的预先处理
+		set:function(target,key,value,receiver){
+			console.log(`setting${key}=${value}`);
+			return target[key] = value;
+		}
+	})
+	console.log(pro.name)
+	pro.name='技术胖';//改变值时触发set
+	console.log(pro.name)
+	
+	</script>
+</html>

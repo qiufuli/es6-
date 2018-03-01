@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>promise对象的使用</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//ES6中的promise的出现给我们很好的解决了回调地狱的问题
+		//你可以想象他是一种承诺，当它成功时执行一些代码，当它失败时执行一些代码
+		let state=1;
+		//resolve成功 ,reject失败
+function step1(resolve,reject){
+    console.log('1.开始-洗菜做饭');
+    if(state==1){
+        resolve('洗菜做饭--完成');
+    }else{
+        reject('洗菜做饭--出错');
+    }
+}
+
+
+function step2(resolve,reject){
+    console.log('2.开始-坐下来吃饭');
+    if(state==1){
+        resolve('坐下来吃饭--完成');
+    }else{
+        reject('坐下来吃饭--出错');
+    }
+}
+
+
+function step3(resolve,reject){
+    console.log('3.开始-收拾桌子洗完');
+     if(state==1){
+        resolve('收拾桌子洗完--完成');
+    }else{
+        reject('收拾桌子洗完--出错');
+    }
+}
+
+// val 是Promise对象执行成功或者失败返回的内容
+new Promise(step1).then(function(val){
+    console.log(val);
+    return new Promise(step2);
+
+}).then(function(val){
+     console.log(val);
+    return new Promise(step3);
+}).then(function(val){
+    console.log(val);
+    return val;
+});
+	</script>
+</html>
+ 

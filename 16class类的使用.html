@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>class类的使用</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//我们在ES5中经常使用方法或者对象去模拟类的使用，虽然可以实现功能，
+		//但是代码并不优雅，ES6为我们提供了类的使用。需要注意的是我们在写类的时候和ES5中的对象和构造函数要区分开来，不要学混了。
+		class Coder{
+			name(val){
+				console.log(val)
+				return val;
+			}
+			// 在class 声明的时候 多个方法中间不用加分号
+			skill(val){
+				//还有this.name('jspang') 要注意return 的用法。
+		        console.log(this.name('jspang')+':'+'Skill:'+val);
+		    }
+			//constructor 传的是class类的参数
+			constructor(a,b){
+				this.a = a;
+				this.b = b;
+			}
+			// 类的参数调用的方法
+			add(){
+				return this.a + this.b;
+			}
+		}
+		let jspang = new Coder(1,2);
+		jspang.name('aaa');
+		jspang.skill('web');
+		console.log(jspang.add());
+		// 类的继承
+		class htmler extends Coder{
+			
+		}
+		let pang = new htmler;
+		pang.name('bbb');
+	</script>
+</html>

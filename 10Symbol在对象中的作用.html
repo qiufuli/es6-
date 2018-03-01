@@ -16,9 +16,17 @@
 		var obj={
 		    [jspang]:'技术胖'
 		}
-		//Symbol的话 不用.调用对象
+		//Symbol的话 不用.调用对象 用【】
 		console.log(obj[jspang]);
 		obj[jspang]='web';
 		console.log(obj[jspang]);
+		// 可以隐藏对象中的参数
+	var obj1={name:'jspang',skill:'web'};
+	let age = Symbol();
+	obj1[age] = 18;
+	for(let item in obj1){
+		console.log(obj1[item]) //在这里就打印不出来age
+	}
+	console.log(obj1[age]) // 在这里就可以调用 
 	</script>
 </html>

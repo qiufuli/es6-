@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>map数据结构</title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//map的效率和灵活性更好 你可以把它看成一种特殊的键值对，
+		//但你的key可以设置成数组，值也可以设置成字符串，让它不规律对应起来。
+	let json = {
+	    name:'jspang',
+	    skill:'web'
+	}
+	console.log(json.name);
+	 
+	var map=new Map();
+	map.set(json,'iam');// json是key iam是value 中间是=》 连接的
+	console.log(map); 
+	//增加set
+	map.set('jspang',json);
+	console.log(map)
+	
+	//取值get
+	console.log(map.get(json));
+	
+	//删除delete的特定值：
+	map.delete(json);
+	console.log(map)
+	
+	//清楚所有元素clear
+//	console.log(map.clear())
+	//size属性
+	console.log(map.size);
+	
+	//查找是否存在has
+	console.log(map.has('jspang'))
+	</script>
+</html>
